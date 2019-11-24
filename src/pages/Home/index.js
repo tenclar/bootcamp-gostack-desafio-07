@@ -49,7 +49,7 @@ class Home extends Component {
               }}
             >
               <div>
-                <MdAddShoppingCart size={16} color="#fff" />
+                <MdAddShoppingCart size={16} color="#fff" /> 3
               </div>
               <span> Adicionar ao Carrinho</span>
             </button>
