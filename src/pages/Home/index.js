@@ -23,10 +23,10 @@ class Home extends Component {
     this.setState({ products: data });
   }
 
-  handleAddProduct = product => {
+  handleAddProduct = id => {
     // outra forma de acesso as actions
-    const { addToCart } = this.props;
-    addToCart(product);
+    const { addToCartRequest } = this.props;
+    addToCartRequest(id);
     /* acesso actions 1
      const { dispatch } = this.props;
     dispatch(CartActions.addToCart(product)); */
