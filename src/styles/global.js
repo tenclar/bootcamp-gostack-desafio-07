@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 import background from '../assets/images/background.svg';
 
 export default createGlobalStyle`
@@ -17,11 +18,11 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 14px sans-serif;
+    font: 14px Roboto, sans-serif;
   }
 
   #root {
-    max-width: 780px;
+    max-width: 1020px;
     margin: 0 auto;
     padding : 0 20px 50px;
   }

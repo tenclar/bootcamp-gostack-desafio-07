@@ -6,16 +6,16 @@ import {
   MdAddCircleOutline,
   MdDelete,
 } from 'react-icons/md';
-import { formatPrice } from '../../util/format'
+import { formatPrice } from '../../util/format';
 import { Container, ProductTable, Total } from './styles';
 import * as CartActions from '../../store/modules/cart/actions';
 
-function Cart({ cart, total, removeFromCart, updateAmount }) {
-  function increment(product){
-    updateAmount(product.id, product.amount+1)
+function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
+  function increment(product) {
+    updateAmountRequest(product.id, product.amount + 1);
   }
-  function decrement(product){
-    updateAmount(product.id, product.amount-1)
+  function decrement(product) {
+    updateAmountRequest(product.id, product.amount - 1);
   }
 
   return (
@@ -42,11 +42,11 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
               </td>
               <td>
                 <div>
-                  <button type="button" onClick={()=> decrement(product)}  >
+                  <button type="button" onClick={() => decrement(product)}>
                     <MdRemoveCircleOutline size={20} color="#7159c1" />
                   </button>
                   <input type="number" readOnly value={product.amount} />
-                  <button type="button" onClick={()=> increment(product)} >
+                  <button type="button" onClick={() => increment(product)}>
                     <MdAddCircleOutline size={20} color="#7159c1" />
                   </button>
                 </div>
@@ -78,14 +78,13 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
   );
 }
 const mapStateToProps = state => ({
-  cart: state.cart.map(product =>({
-    ...product, 
-    subtotal: formatPrice(product.price * product.amount)
+  cart: state.cart.map(product => ({
+    ...product,
+    subtotal: formatPrice(product.price * product.amount),
   })),
-  total: state.cart.reduce((total, product)=>{
+  total: state.cart.reduce((total, product) => {
     return total + product.price * product.amount;
-  },0)
- 
+  }, 0),
 });
 
 const mapDispatchToProps = dispatch =>
