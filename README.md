@@ -1,2 +1,2 @@
-# bootcamp-gostack-desafio-07
-Desafio 7: Arquitetura Flux
+# bootcamp-gostack-07
+modulo 7: Arquitetura Flux
